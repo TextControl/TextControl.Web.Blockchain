@@ -1,0 +1,86 @@
+﻿@using TXTextControl.Web.MVC.DocumentViewer
+@model SignViewModel
+
+<div class="row">
+
+    <div class="col-12">
+
+        @Html.TXTextControl().DocumentViewer(settings =>
+        {
+            settings.Dock = DocumentViewerSettings.DockStyle.Fill;
+            settings.DocumentData = Model.Document;
+            settings.SignatureSettings = new SignatureSettings()
+            {
+                ShowSignatureBar = true,
+                OwnerName = "Text Control Demo",
+                UniqueId = Guid.NewGuid().ToString(),
+                SignatureBoxName = "txsign",
+                SignerInitials = "TT",
+                SignerName = "Tim Typer",
+            };
+        }).Render()
+
+    </div>
+
+</div>
+
+
+    @section Scripts {
+
+        <script>
+
+            window.addEventListener("documentViewerLoaded", function() {
+                TXDocumentViewer.signatures.setSubmitCallback(exportDocument);
+            }); 
+
+            function exportDocument(e) {
+
+                var serviceURL = "@Url.Action("StoreDocument", "Document")";
+
+                // send document to controller
+                $.ajax({
+                    type: "POST",
+                    url: serviceURL,
+                    dataType: "json",
+                    data: {
+                        Document: e.document,
+                        UniqueId: e.uniqueId,
+                        SignerName: e.signerName
+                    },
+                    success: successFunc,
+                    error: errorFunc
+                });
+            }
+
+            function successFunc(data, status) {
+
+                if (data === undefined) {
+                    alert("Blockchain is not valid!");
+                    return;
+                }
+
+                // create temporary link to download document
+                var element = document.createElement('a');
+                element.setAttribute('href', 'data:application/octet-stream;base64,' + data.pdf);
+                element.setAttribute('download', data.blockHash + ".pdf");
+
+                element.style.display = 'none';
+                document.body.appendChild(element);
+
+                // simulate click
+                element.click();
+
+                // remove the link
+                document.body.removeChild(element);
+
+                window.location = "Validate?blockHash=" + data.blockHash;
+            }
+
+            function errorFunc() {
+                alert("Error");
+            }
+
+        </script>
+    }    
+
+

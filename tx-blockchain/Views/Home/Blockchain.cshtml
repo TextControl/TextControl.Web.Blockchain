@@ -1,0 +1,38 @@
+﻿@model Blockchain
+
+<div class="container">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Height</th>
+          <th scope="col">Block Hash</th>
+          <th scope="col">Previous Hash</th>
+          <th scope="col">Mined</th>
+          <th scope="col">Nonce</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach(Block block in @Model.Chain) {
+        <tr>
+            <th scope="row">@block.Index</th>
+            <td>@block.BlockHash</td>
+            <td>@block.PreviousBlockHash</td>
+            <td>@block.TimeStamp</td>
+            <td>@block.Nonce</td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <p>Block Data:</p>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>@block.Data</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+
+</div>
