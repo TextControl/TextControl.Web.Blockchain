@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>tx_blockchain</RootNamespace>
@@ -20,7 +20,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.26.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="TXTextControl.Web.DocumentViewer" Version="31.1.1" />
+    <PackageReference Include="TXTextControl.TextControl.Core.SDK" Version="33.0.0" />
+    <PackageReference Include="TXTextControl.Web.DocumentViewer" Version="33.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,76 +40,19 @@
     <None Update="tx31_css.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="tx31_doc.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="tx31_dox.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="tx31_htm.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="tx31_pdf.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="tx31_rtf.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="tx31_xlx.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="tx31_xml.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="App_Data\Blockchains\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="TXBarcode">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXBarcode.dll</HintPath>
-    </Reference>
-    <Reference Include="TXBarcode.Windows.Forms">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXBarcode.Windows.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="TXDocumentServer">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXDocumentServer.dll</HintPath>
-    </Reference>
-    <Reference Include="TXDocumentServer.Web.DocumentViewer">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXDocumentServer.Web.DocumentViewer.dll</HintPath>
-    </Reference>
-    <Reference Include="TXDrawing">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXDrawing.dll</HintPath>
-    </Reference>
-    <Reference Include="TXDrawing.Windows.Forms">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXDrawing.Windows.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="txic">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\bin64\txic.dll</HintPath>
-    </Reference>
-    <Reference Include="TXImageProvider">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXImageProvider.dll</HintPath>
-    </Reference>
-    <Reference Include="txkernel">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\bin64\txkernel.dll</HintPath>
-    </Reference>
-    <Reference Include="txpdf">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\txpdf.dll</HintPath>
-    </Reference>
-    <Reference Include="TXTextControl">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXTextControl.dll</HintPath>
-    </Reference>
-    <Reference Include="TXTextControl.Server">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXTextControl.Server.dll</HintPath>
-    </Reference>
-    <Reference Include="TXTextControl.Web">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\TXTextControl.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="txtools">
-      <HintPath>..\..\..\..\..\..\Program Files\Text Control GmbH\TX Text Control 31.0.NET Server for ASP.NET\Assembly\bin64\txtools.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
